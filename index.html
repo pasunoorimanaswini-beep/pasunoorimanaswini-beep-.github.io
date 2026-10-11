@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title> Manaswini Pasunoori  — Full-Stack Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--bg:#07040f;--ink:#f3eefc;--mut:#a79cc4;--pink:#ff3d9a;--ice:#5ef0ff;--amb:#ffc857;--card:rgba(20,12,40,.55);--ln:rgba(255,255,255,.12);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.6 'Space Grotesk',system-ui,sans-serif;overflow-x:hidden}
+#bg{position:fixed;inset:0;width:100%;height:100%;z-index:0}
+main,nav{position:relative;z-index:2}
+h1,h2,h3{font-family:'Syne',sans-serif;font-weight:800;line-height:1}
+nav{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 5vw;backdrop-filter:blur(14px);background:linear-gradient(#07040fcc,transparent);z-index:5}
+nav b{font-family:Syne;font-size:20px}nav div{display:flex;gap:22px}
+nav a{color:var(--mut);text-decoration:none;font-size:15px;transition:.2s}nav a:hover{color:var(--ice)}
+#prog{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--pink),var(--ice));z-index:9}
+section{min-height:100vh;padding:110px 7vw 60px;display:flex;flex-direction:column;justify-content:center;max-width:1200px;margin:auto}
+#hero{perspective:900px}
+#hero h1{font-size:clamp(46px,10vw,150px);letter-spacing:-.03em;transform-style:preserve-3d;transition:transform .15s}
+#hero h1 span{display:block;background:linear-gradient(100deg,#fff 20%,var(--ice) 55%,var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 0 0 transparent;filter:drop-shadow(0 0 28px #ff3d9a55)}
+#hero h1 span+span{transform:translateZ(60px);margin-top:.05em}
+.role{font-size:clamp(18px,2.4vw,30px);margin-top:28px;color:var(--mut);min-height:1.6em}
+.role em{color:var(--amb);font-style:normal;border-right:2px solid var(--amb);padding-right:4px}
+.cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
+.btn{padding:14px 26px;border-radius:50px;border:1px solid var(--ln);color:var(--ink);text-decoration:none;font-weight:700;background:var(--card);backdrop-filter:blur(10px);transition:.25s}
+.btn.p{background:linear-gradient(90deg,var(--pink),#a855f7);border:0;box-shadow:0 0 36px #ff3d9a66}
+.btn:hover{transform:translateY(-4px) scale(1.04);box-shadow:0 0 40px #5ef0ff66}
+.scroll{position:absolute;bottom:26px;left:7vw;color:var(--mut);font-size:14px;animation:bob 1.6s infinite}
+@keyframes bob{50%{transform:translateY(8px)}}
+h2{font-size:clamp(34px,6vw,76px);margin-bottom:34px;letter-spacing:-.02em}
+.glass{background:var(--card);border:1px solid var(--ln);border-radius:22px;padding:30px;backdrop-filter:blur(16px)}
+.about{display:grid;grid-template-columns:1.4fr 1fr;gap:28px}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.stats div{text-align:center;padding:18px 8px;border:1px solid var(--ln);border-radius:16px;background:#ffffff08}
+.stats b{display:block;font:800 40px Syne;color:var(--ice)}
+.stats small{color:var(--mut)}
+#sphereWrap{position:relative;height:min(78vw,560px);cursor:grab;touch-action:pan-y}
+#sphere{position:absolute;inset:0}
+#sphere span{position:absolute;left:50%;top:50%;font-weight:700;white-space:nowrap;will-change:transform;padding:4px 12px;border-radius:30px;border:1px solid var(--ln);background:#12082a99}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;perspective:1100px}
+.card{position:relative;transform-style:preserve-3d;transition:transform .12s ease-out,box-shadow .3s;min-height:330px;display:flex;flex-direction:column;gap:12px}
+.card:hover{box-shadow:0 30px 70px #ff3d9a33}
+.card>*{transform:translateZ(30px)}
+.card h3{font-size:25px}
+.tag{display:inline-block;font-size:13px;color:var(--ice);border:1px solid #5ef0ff55;padding:2px 11px;border-radius:20px;margin:0 6px 6px 0}
+.card p{color:var(--mut);font-size:15.5px}
+.badge{align-self:flex-start;background:var(--amb);color:#1a1000;font-weight:700;font-size:13px;padding:3px 12px;border-radius:20px}
+.card::before{content:"";position:absolute;inset:-1px;border-radius:22px;padding:1px;background:conic-gradient(from var(--a,0deg),var(--pink),var(--ice),var(--amb),var(--pink));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:.55}
+.tl{border-left:2px solid var(--ln);padding-left:30px;display:grid;gap:26px}
+.tl .glass{position:relative}
+.tl .glass::before{content:"";position:absolute;left:-39px;top:34px;width:16px;height:16px;border-radius:50%;background:var(--pink);box-shadow:0 0 22px var(--pink)}
+.tl small{color:var(--amb)}
+.certs{display:flex;flex-wrap:wrap;gap:12px}
+.certs span{padding:10px 18px;border-radius:14px;border:1px solid var(--ln);background:var(--card);transition:.25s}
+.certs span:hover{transform:translateY(-6px) rotateX(18deg);border-color:var(--ice);box-shadow:0 14px 30px #5ef0ff33}
+.win{font-size:20px;display:flex;gap:14px;align-items:center}
+#contact{text-align:center;align-items:center}
+#contact h2{font-size:clamp(40px,9vw,120px)}
+footer{position:relative;z-index:2;text-align:center;color:var(--mut);padding:30px;font-size:14px}
+#cur{position:fixed;width:26px;height:26px;border:2px solid var(--ice);border-radius:50%;pointer-events:none;z-index:99;transform:translate(-50%,-50%);transition:width .2s,height .2s,background .2s;mix-blend-mode:screen}
+#cur.h{width:56px;height:56px;background:#ff3d9a33}
+#load{position:fixed;inset:0;background:var(--bg);z-index:100;display:grid;place-items:center;transition:opacity .8s,visibility .8s}
+#load.off{opacity:0;visibility:hidden}
+#load div{font:800 clamp(30px,6vw,60px) Syne;letter-spacing:.1em;animation:pulse 1s infinite alternate}
+@keyframes pulse{to{color:var(--pink);text-shadow:0 0 40px var(--pink)}}
+.rv{opacity:0;transform:translateY(50px) rotateX(12deg);transition:1s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media(max-width:760px){.about{grid-template-columns:1fr}nav div{gap:12px}nav a{font-size:13px}#cur{display:none}}
+@media(hover:none){#cur{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+a:focus-visible,button:focus-visible{outline:2px solid var(--ice);outline-offset:3px}
+</style></head>
+<body>
+<div id="load"><div>LOADING UNIVERSE…</div></div>
+<div id="prog"></div><div id="cur"></div>
+<canvas id="bg"></canvas>
+<nav><b>PM.</b><div><a href="#about">About</a><a href="#skills">Skills</a><a href="#work">Projects</a><a href="#path">Journey</a><a href="#contact">Contact</a></div></nav>
+<main>
+<section id="hero">
+ <h1 id="name"><span>Pasunoori</span><span>Manaswini</span></h1>
+ <p class="role">I build <em id="typed"></em></p>
+ <div class="cta"><a class="btn p" href="#work">See my projects</a><a class="btn" href="mailto:pasunoorimanaswini@gmail.com">Email me</a></div>
+ <div class="scroll">Scroll to fly through ↓</div>
+</section>
+
+<section id="about"><h2 class="rv">About me</h2>
+ <div class="about rv">
+  <div class="glass"><p>I'm a Computer Science Engineering student in Hyderabad who builds full-stack web apps with the MERN stack and likes pairing them with AI. I enjoy turning real problems into working products: a booking platform, a knowledge hub for student projects, and a marketplace that helps traditional artisans sell online.</p><p style="margin-top:14px">B.Tech CSE at Matrusri Engineering College, with a CGPA of 8.30.</p></div>
+  <div class="stats"><div><b data-n="8.3" data-d="1">0</b><small>CGPA</small></div><div><b data-n="4">0</b><small>Projects</small></div><div><b data-n="2">0</b><small>Internships</small></div><div><b data-n="8">0</b><small>Certifications</small></div></div>
+ </div></section>
+
+<section id="skills"><h2 class="rv">My tech universe</h2>
+ <div id="sphereWrap" class="rv"><div id="sphere"></div></div>
+ <p style="color:var(--mut);text-align:center">Drag the sphere to spin it.</p></section>
+
+<section id="work"><h2 class="rv">Projects</h2>
+ <div class="grid">
+  <div class="card glass rv"><h3>HomelyHub</h3><div><span class="tag">MongoDB</span><span class="tag">Express</span><span class="tag">React</span><span class="tag">Node.js</span></div><p>A full-stack property booking platform built as the capstone of my MERN internship at Emertxe. REST APIs handle authentication, listings and bookings. A responsive React interface lets people browse properties and book stays.</p></div>
+  <div class="card glass rv"><h3>LEGACY</h3><div><span class="tag">AI</span><span class="tag">Full-Stack</span></div><p>An AI-powered platform that preserves institutional knowledge and past student projects. Students find relevant work by topic and domain, and departments collaborate, share knowledge and match with mentors.</p></div>
+  <div class="card glass rv"><span class="badge">SIH 2026 · Internal round</span><h3>AI Artisan Marketplace</h3><div><span class="tag">AI/ML</span><span class="tag">Multilingual</span><span class="tag">Full-Stack</span></div><p>A platform where traditional artisans showcase and sell handmade products. It offers AI assistance, multiple languages and a simple interface for people with little technical experience. Currently in development.</p></div>
+  <div class="card glass rv"><h3>Movie Recommender</h3><div><span class="tag">Python</span><span class="tag">Similarity</span></div><p>A recommendation engine that cleans and processes movie datasets, then uses filtering and similarity techniques to suggest personalized picks.</p></div>
+ </div></section>
+
+<section id="path"><h2 class="rv">Journey</h2>
+ <div class="tl">
+  <div class="glass rv"><small>Aug 2026 – Sep 2026</small><h3 style="font-size:24px;margin:6px 0 8px">MERN Stack Development Intern · Emertxe</h3><p style="color:var(--mut)">A 5-week NSDC-affiliated internship where I built HomelyHub end to end with MongoDB, Express.js, React and Node.js.</p></div>
+  <div class="glass rv"><small>Internship</small><h3 style="font-size:24px;margin:6px 0 8px">Web Development Intern · ShadowFox</h3><p style="color:var(--mut)">Built a personal portfolio website and an IPL FanZone website with HTML, CSS and JavaScript.</p></div>
+  <div class="glass rv win">🏆 <span>Selected for the Internal Round of Smart India Hackathon 2026 with the AI artisan platform.</span></div>
+ </div>
+ <h2 class="rv" style="margin:70px 0 24px;font-size:clamp(28px,4vw,48px)">Certifications</h2>
+ <div class="certs rv"><span>Agentic AI · Oracle University</span><span>Python Programming · UniAthena</span><span>Software Engineering Simulation · CommBank</span><span>Data Labelling Simulation · Forage</span><span>Cyber Simulation · Deloitte</span><span>Cybersecurity · Simplilearn</span><span>Web Dev Internship ·ShadowFox</span><span>MERN Stack Internship · Emertxe</span></div>
+</section>
+
+<section id="contact"><h2 class="rv">Let's build something.</h2>
+ <p class="rv" style="color:var(--mut);max-width:520px">I'm looking for opportunities in software development and AI-driven products. Send me a message.</p>
+ <div class="cta rv"><a class="btn p" href="mailto:pasunoorimanaswini@gmail.com">pasunoorimanaswini@gmail.com</a><a class="btn" href="https://github.com/pasunoorimanaswini-beep" rel="noopener">GitHub</a><a class="btn" href="https://www.linkedin.com/in/pasunoori-manaswini-385873334?utm_source=share_via&utm_content=profile&utm_medium=member_android" rel="noopener">LinkedIn</a></div>
+</section>
+</main>
+<footer>Designed and coded by Manaswini Pasunoori · Hyderabad, India</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)},mx=0,my=0,sp=0,reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+// loader
+addEventListener('load',function(){setTimeout(function(){$('#load').classList.add('off')},700)});
+setTimeout(function(){$('#load').classList.add('off')},3000);
+// cursor + parallax
+addEventListener('mousemove',function(e){mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5;var c=$('#cur');c.style.left=e.clientX+'px';c.style.top=e.clientY+'px';
+ var n=$('#name');n.style.transform='rotateY('+mx*18+'deg) rotateX('+(-my*14)+'deg)'});
+document.querySelectorAll('a,.card,.certs span').forEach(function(el){el.addEventListener('mouseenter',function(){$('#cur').classList.add('h')});el.addEventListener('mouseleave',function(){$('#cur').classList.remove('h')})});
+// scroll progress
+function onS(){var m=document.documentElement.scrollHeight-innerHeight;sp=m>0?scrollY/m:0;$('#prog').style.width=sp*100+'%'}
+addEventListener('scroll',onS,{passive:true});onS();
+// reveal + counters
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');e.target.querySelectorAll('[data-n]').forEach(count)}})},{threshold:.15});
+document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+function count(el){if(el.done)return;el.done=1;var t=+el.dataset.n,d=+el.dataset.d||0,s=performance.now();(function f(n){var p=Math.min((n-s)/1400,1);el.textContent=(t*(1-Math.pow(1-p,3))).toFixed(d);if(p<1)requestAnimationFrame(f)})(s)}
+// typing
+var roles=['MERN stack web apps','AI-powered platforms','REST APIs that scale','things that help people'],ri=0,ci=0,del=0,ty=$('#typed');
+(function tick(){var w=roles[ri];ci+=del?-1:1;ty.textContent=w.slice(0,ci);var t=del?35:75;if(!del&&ci===w.length){del=1;t=1400}else if(del&&ci===0){del=0;ri=(ri+1)%roles.length;t=300}setTimeout(tick,reduce?9999:t)})();
+// card tilt
+document.querySelectorAll('.card').forEach(function(c){c.addEventListener('mousemove',function(e){var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform='rotateY('+x*22+'deg) rotateX('+(-y*22)+'deg) scale(1.03)';c.style.setProperty('--a',(x+.5)*360+'deg')});c.addEventListener('mouseleave',function(){c.style.transform=''})});
+// skills sphere
+var skills=['Python','JavaScript','C','Java','SQL','MongoDB','Express.js','React.js','Node.js','REST APIs','JWT Auth','HTML5','CSS3','Responsive Design','DSA','OOP','Git','GitHub','VS Code','Postman','AI/ML','Agentic AI'],sph=$('#sphere'),pts=[],rx=.3,ry=0,vx=0,vy=.006,drag=0,lx=0,ly=0;
+skills.forEach(function(s,i){var k=i+.5,phi=Math.acos(1-2*k/skills.length),th=Math.PI*(1+Math.sqrt(5))*k,el=document.createElement('span');el.textContent=s;el.style.color=['#5ef0ff','#ff3d9a','#ffc857'][i%3];sph.appendChild(el);pts.push({x:Math.cos(th)*Math.sin(phi),y:Math.cos(phi),z:Math.sin(th)*Math.sin(phi),el:el})});
+var W=$('#sphereWrap');
+W.addEventListener('pointerdown',function(e){drag=1;lx=e.clientX;ly=e.clientY});
+addEventListener('pointerup',function(){drag=0});
+addEventListener('pointermove',function(e){if(drag){vy=(e.clientX-lx)*.0009;vx=(e.clientY-ly)*.0009;ry+=(e.clientX-lx)*.008;rx+=(e.clientY-ly)*.008;lx=e.clientX;ly=e.clientY}});
+function sphere(){if(!drag){ry+=vy;rx+=vx;vx*=.96;if(Math.abs(vy)>.006)vy*=.97;else vy=vy<0?-.006:.006}
+ var R=Math.min(W.clientWidth,W.clientHeight)*.42,cx=Math.cos(rx),sx=Math.sin(rx),cy=Math.cos(ry),sy=Math.sin(ry);
+ pts.forEach(function(p){var x1=p.x*cy+p.z*sy,z1=-p.x*sy+p.z*cy,y1=p.y*cx-z1*sx,z2=p.y*sx+z1*cx,sc=.55+(z2+1)*.35;
+  p.el.style.transform='translate3d('+(x1*R*1.35-50+'%').replace('%','px')+','+(y1*R)+'px,'+(z2*60)+'px) translate(-50%,-50%) scale('+sc+')';
+  p.el.style.opacity=.25+(z2+1)*.38;p.el.style.zIndex=Math.round((z2+1)*50)})}
+// three.js scene
+var T=window.THREE;
+if(T){
+ var cv=$('#bg'),rd=new T.WebGLRenderer({canvas:cv,antialias:true,alpha:true});rd.setPixelRatio(Math.min(devicePixelRatio,2));
+ var sc=new T.Scene();sc.fog=new T.FogExp2(0x07040f,.016);
+ var cam=new T.PerspectiveCamera(65,1,.1,300);
+ function rs(){rd.setSize(innerWidth,innerHeight);cam.aspect=innerWidth/innerHeight;cam.updateProjectionMatrix()}rs();addEventListener('resize',rs);
+ // particles
+ var N=3200,pos=new Float32Array(N*3),col=new Float32Array(N*3),pal=[new T.Color(0x5ef0ff),new T.Color(0xff3d9a),new T.Color(0xffc857),new T.Color(0xa855f7)];
+ for(var i=0;i<N;i++){pos[i*3]=(Math.random()-.5)*110;pos[i*3+1]=(Math.random()-.5)*110;pos[i*3+2]=20-Math.random()*190;var c=pal[i%4];col.set([c.r,c.g,c.b],i*3)}
+ var g=new T.BufferGeometry();g.setAttribute('position',new T.BufferAttribute(pos,3));g.setAttribute('color',new T.BufferAttribute(col,3));
+ sc.add(new T.Points(g,new T.PointsMaterial({size:.28,vertexColors:true,transparent:true,opacity:.9,sizeAttenuation:true})));
+ // tunnel rings
+ var rings=[];for(i=0;i<45;i++){var m=new T.Mesh(new T.TorusGeometry(15+Math.sin(i*.5)*3,.05,6,64),new T.MeshBasicMaterial({color:i%2?0xff3d9a:0x5ef0ff,transparent:true,opacity:.35}));m.position.z=-i*4;m.rotation.z=i*.2;sc.add(m);rings.push(m)}
+ // hero shapes
+ function wf(geo,color,x,y,z){var m=new T.Mesh(geo,new T.MeshBasicMaterial({color:color,wireframe:true,transparent:true,opacity:.8}));m.position.set(x,y,z);sc.add(m);return m}
+ var shapes=[wf(new T.TorusKnotGeometry(3,.9,160,18),0xff3d9a,5,0,-4),wf(new T.IcosahedronGeometry(4,1),0x5ef0ff,-8,1,-30),wf(new T.TorusGeometry(4,1.2,16,48),0xffc857,8,-2,-55),wf(new T.OctahedronGeometry(4.5,1),0xa855f7,-7,0,-85),wf(new T.DodecahedronGeometry(4.5),0x5ef0ff,6,1,-115),wf(new T.TorusKnotGeometry(3,.6,200,12,3,5),0xff3d9a,0,0,-145)];
+ var cz=5,t0=0;
+ (function loop(t){requestAnimationFrame(loop);t*=.001;
+  var tz=5-sp*150;cz+=(tz-cz)*.06;cam.position.set(mx*5+Math.sin(t*.3)*.8,-my*4+Math.cos(t*.4)*.5,cz);cam.rotation.z=Math.sin(sp*Math.PI*6)*.12;cam.lookAt(mx*3,-my*2,cz-20);
+  shapes.forEach(function(s,i){s.rotation.x=t*.3*(i%2?1:-1);s.rotation.y=t*.4;s.scale.setScalar(1+Math.sin(t*1.2+i)*.06)});
+  rings.forEach(function(r,i){r.rotation.z+=.002*(i%2?1:-1)});
+  rd.render(sc,cam);sphere()})(0);
+}else{(function l(){requestAnimationFrame(l);sphere()})()}
+})();
+</script>
+</body></html>
